@@ -1,0 +1,36 @@
+body{
+	background-color: #DAFFED;
+}
+
+table{
+	width: 75%;
+}
+
+th{
+	height: 40px;
+	font-size: 1.5em;
+	background-color: #FFF9DA;
+}
+
+table, th, td {
+   	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 15px;
+}
+
+tr:nth-child(odd){
+	background-color: #FFFFFF;
+}
+
+tr:nth-child(even){
+	background-color: #F2F2F2;
+}
+
+tr:hover{
+	background-color: #DAECFF;
+}
+
+td{
+	font-size: 1.2em;
+}
+
