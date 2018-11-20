@@ -242,7 +242,7 @@ class Spout(object):
         pass
 
     def run(self):
-      #  self.nextTuple()
+       # self.nextTuple()
         global MODE
         MODE = Spout
         conf, context = initComponent()

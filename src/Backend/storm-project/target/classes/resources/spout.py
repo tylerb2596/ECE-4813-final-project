@@ -1,8 +1,6 @@
-#ECE 4813 Lab 5
-#Tyler Brown (903017579)
-
-#this code is used to grab data from Kafka
-#and publish it to storm as a spout
+#ece 4813 team 10 final project
+#this is the storm spout used to take data off
+#of the kafka queue and emit it to the bolt
 
 from random import randrange
 import time
@@ -19,19 +17,21 @@ urllib3.disable_warnings()
 
 #Connect to Kafka
 client = KafkaClient("ip-172-31-3-170.us-east-2.compute.internal:6667")
-consumer = KafkaConsumer(bootstrap_servers=['ip-172-31-3-170.us-east-2.compute.internal:6667'], value_deserializer=lambda m: json.loads(m.decode('ascii')), auto_offset_reset='earliest', group_id="Lab5-group")
+consumer = KafkaConsumer(bootstrap_servers=['ip-172-31-3-170.us-east-2.compute.internal:6667'], value_deserializer=lambda m: json.loads(m.decode('ascii')), auto_offset_reset='earliest', group_id="final_project")
 
-consumer.subscribe(consumer.topics())
+consumer.subscribe("project")
 
 def getData():
     try:
        data = []
        for message in consumer:
-          data.append(json.loads(str(message.value)))
-          if len(data) == 20:
+          data.append(message.value)#json.loads(message.value.decode('ascii')))
+          if len(data) == 10:
              break
+      # print data
        return data
-    except:
+    except Exception as e:
+      # print e
        return [{}]
 
 class MySpout(Spout):
