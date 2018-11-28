@@ -12,3 +12,26 @@
         width: 100%;
         color: white;
     }
+
+    #content-table-container {
+        padding-top: 200px;
+        display: table;
+        margin: auto;
+    }
+
+    mat-table {
+        width: 100%;
+    }
+
+    th.mat-header-cell {
+        vertical-align: middle;
+        margin: 0 auto;
+        text-align: center;
+        padding: 8px;
+    }
+
+    td.mat-cell {
+        text-align: center;
+        vertical-align: middle;
+        margin: 0 auto;
+    }
